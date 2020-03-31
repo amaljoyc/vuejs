@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-on:input="changeTitle">
+        <p v-once>{{ title }}</p>
+        <p>{{ title }}</p>
+        <p>{{ sayHello() }}</p>
+        <a v-bind:href="link">Google</a>
+        <p v-html="finishedLink"></p>
+
+        <hr>
+        <button v-on:click="increment">click me funtion</button>
+        <button v-on:click="count++">click me direct</button>
+        <p> {{ count }} </p>
+        <button v-on:click="incrementBy(2, $event)">click me by 2</button>
+        <p> {{ count2 }} </p>
+        <p v-on:mousemove="getCoordinates"> 
+            {{x}} / {{y}}
+            <span v-on:mousemove.stop>THIS IS A DEAD SPOT - event mousemove stopped here</span>
+        </p>
+        <input type="text" v-on:keyup.enter="alertMe">
+
+        <hr>
+        <input type="text" v-model="mytext">
+        <p> {{mytext}} </p>
+
+        <hr>
+        <button v-on:click="i++">computed button</button>
+        <p>i = {{getI}} {{computedMethod}} {{nonComputedMethod()}} </p>
+
+        <hr>
+        <button v-on:click="watchMe++">watchMe++</button>
+        <p>here is the watch variable: {{ watchMe }} </p>
+
+    </div>
+    <script src="../vue.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

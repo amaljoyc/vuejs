@@ -1,0 +1,24 @@
+v-on -> to listen to an event (from html to vuejs)
+"v-on:" can be replaced with a shorthand -> "@"
+
+v-bind -> to bind (from vuejs to html)
+"v-bind:" can be replaced with a shorthand -> ":"
+
+v-model -> two way binding (from html to vuejs and vice-versa)
+
+below, the keywords are el, data, methods...
+new Vue({
+    el: '#sampleid',
+    data: {
+
+    },
+    methods: {
+
+    },
+    computed: {
+
+    },
+    watch: {
+
+    }
+})
