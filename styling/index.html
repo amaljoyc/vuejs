@@ -12,8 +12,9 @@
         <br>
         <div class="demo" @click="isColorChange = !isColorChange" :class="changeColor"></div>
 
-        <br>
+        <br><hr>
         <div class="demo" :class="color"></div>
+        <div class="demo" :style="{backgroundColor: color}"></div>
         <br>
         <input type="text" v-model="color">
     </div>
