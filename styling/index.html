@@ -1,0 +1,24 @@
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <p>{{title}}</p>
+
+        <div class="demo" :class="{red: true}"></div>
+        <div class="demo" :class="[redOnly, smallSize]"></div>
+        
+        <br>
+        <div class="demo" @click="isColorChange = !isColorChange" :class="changeColor"></div>
+
+        <br>
+        <div class="demo" :class="color"></div>
+        <br>
+        <input type="text" v-model="color">
+    </div>
+
+    <script src="../vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
