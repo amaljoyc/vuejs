@@ -1,0 +1,26 @@
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <p v-if="show">show me if true</p>
+        <p v-else>else show this</p>
+        <button @click="show = !show">toggle show</button>
+        <button @click="toggleShow()">toggle show</button>
+
+        <hr>
+        <ul>
+            <li v-for="(item, i) in myList">
+                {{item}}, {{i}}
+            </li>
+        </ul>
+        <button @click="myList.push('four')">Add new item</button>
+
+        <div v-for="n in 5">{{ n }}</div>
+    </div>
+
+    <script src="../vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
