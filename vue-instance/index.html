@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <body>
+    <div id="app1">
+      <p>{{ title1 }}</p>
+      <button @click="showMyRef" ref="myRefButton"></button>
+      <hello-world></hello-world>
+      <hello-world></hello-world>
+    </div>
+
+    <hr />
+    <div id="app2">
+      <p>{{ title2 }}</p>
+      <button @click="onChange">button</button>
+      <hello-world></hello-world>
+    </div>
+
+    <hr />
+    <div id="app3"></div>
+
+    <script src="../vue.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

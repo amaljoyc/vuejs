@@ -23,8 +23,23 @@ new Vue({
     }
 })
 
+´computed´: 
+- the functions inside ´computed´ (or computed properties as they are called) gets called by itself, as the properties used inside changes. 
+- They are calculations that will be cached based on their dependencies and will only update when needed.
+- more optimal than ´watch´.
+- need to run synchornously.
+
+´watch´:
+- can be used when computed is not possible.
+- the property name of a watch must match one of the properties used inside the data field.
+- this is another way to check if something changed on a data property and perform some action in response to that change.
+- can also run asyncronously (so can use any async methods inside the logic)
+
+
 v-if -> this can be used to provide conditional expressions.
 v-else -> is the else condition when the v-if condition is false.
 v-else-if -> only available on higher version of vuejs
 v-show -> similar to v-if, but useful when you don't want to detach the element (it would be hidden with css)
 v-for -> for looping
+
+´ref´ -> can be used to get some value from an html element.

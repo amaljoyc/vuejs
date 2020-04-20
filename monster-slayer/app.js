@@ -71,6 +71,7 @@ new Vue({
             this.logs = [];
             this.monsterLife = this.playerLife = 100;
             this.monsterLifeBar.width = this.playerLifeBar.width = '400px'
+            clearInterval(this.attackIntervalId);
         }
     }
 })
