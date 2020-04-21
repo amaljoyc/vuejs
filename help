@@ -43,3 +43,14 @@ v-show -> similar to v-if, but useful when you don't want to detach the element 
 v-for -> for looping
 
 ´ref´ -> can be used to get some value from an html element.
+
+npm install -g vue-cli
+vue init webpack-simple my-first-app -> create a sample project using vue-cli
+npm install -> to install all depens in package.json
+npm run dev -> to run the app
+
+(in case if npm run does nothing)
+npm config get ignore-scripts -> if this is true, then run following,
+npm config set ignore-scripts false
+
+npm run build -> build in order to deploy the app in prod
