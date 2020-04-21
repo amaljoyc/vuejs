@@ -1,11 +1,8 @@
 <template>
-  <h1>Hello World!</h1>
+  <my-status-container></my-status-container>
 </template>
 
 <script>
-export default {
-
-}
 </script>
 
 <style>

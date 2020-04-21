@@ -20,6 +20,12 @@ new Vue({
     },
     watch: {
 
+    },
+    components: {
+
+    },
+    render: {
+
     }
 })
 
@@ -34,6 +40,13 @@ new Vue({
 - the property name of a watch must match one of the properties used inside the data field.
 - this is another way to check if something changed on a data property and perform some action in response to that change.
 - can also run asyncronously (so can use any async methods inside the logic)
+
+`components` property in vue instance
+- these are used to define local components instead of a single global component.
+- for global component defenition, we can use Vue.component() method.
+
+`render`:
+- useful for adding a vuejs template (like rendering a App.vue file)
 
 
 v-if -> this can be used to provide conditional expressions.
@@ -54,3 +67,9 @@ npm config get ignore-scripts -> if this is true, then run following,
 npm config set ignore-scripts false
 
 npm run build -> build in order to deploy the app in prod
+
+´component´
+- used for reusing components or parts.
+- when you write a vue component, the data must be a function instead of just a property (this is to make sure state is different in each copy of component).
+- el property doesn't work inside a component.
+- the first arg of Vue.component() is tag name, 2nd arg is a vue instance.
