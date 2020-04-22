@@ -9,6 +9,9 @@ v-model -> two way binding (from html to vuejs and vice-versa)
 below, the keywords are el, data, methods...
 new Vue({
     el: '#sampleid',
+    props: {
+
+    },
     data: {
 
     },
@@ -28,6 +31,12 @@ new Vue({
 
     }
 })
+
+`data`:
+- it is the private memory of each component where you can store any variables you need
+
+`props`:
+- props are how you pass this data from a parent component down to a child component
 
 ´computed´: 
 - the functions inside ´computed´ (or computed properties as they are called) gets called by itself, as the properties used inside changes. 
