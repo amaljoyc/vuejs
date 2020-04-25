@@ -175,5 +175,116 @@ axios.post(url, data, config)
 ```
 - use the given below tag for adding router links to your app (this is slightly different from html anchor tag href, that it doesn't send request to server if the mode is `hash`)
 ```
-    <router-link></router-link>
+    <router-link to="/">Home</router-link>
+```
+- instead of doing routing in html template, if you want to make routing from JS script, you can use 
+```
+this.$router.push('/')
+```
+or use named routed instead of string route path
+```
+this.$router.push({
+    name: 'home'
+})
+```
+
+#### `lazy loading routes`
+- to make sure not all routes are loaded in the beginning, but only when you click on them.
+- every bundler you use will handle this differently. So if you are using webpack, you need to write some custom code to not import all modules in the beginning of the script, but resolve later on.
+
+## `Vuex`- state management
+- vuex store is created and integrated into root vue instance as given below,
+```
+import Vuex from 'vuex'
+Vue.use(Vuex)
+
+const store = new Vue.Store({
+    state: { // -> state is a keyword here
+        counter: 0
+    },
+    getters: { // -> getters is a keyword here
+        doubleCounter: state => {
+            return state.counter * 2
+        }
+    },
+    mutations: { // -> keyword; its like a setter; only support sync
+        increment: (state, payload) => {
+            // payload is NOT a keyword and can be a primitive or an object
+            console.log(payload)
+            state.counter++
+        }
+    },
+    actions: { // -> to provide async behavior for mutations
+        increment: (context, payload) => {
+            // payload is NOT a keyword and can be a primitive or an object
+            console.log(payload)
+            // here you commit your mutation method
+            setTimeout(() => {
+                context.commit('increment', payload)
+            }, 1000)
+        }
+    },
+    modules: {
+        // to include externally defined store constant modules into this central store
+    }
+})
+
+new Vue({
+    el: '#app'
+    store,
+    render: h => h(App)
+})
+```
+
+- to access a store value, or getter, or commit a mutation, or dispatch an action
+```
+this.$store.state.counter
+this.$store.getters.doubleCounter
+this.$store.commit('increment', payload) -> this is how mutation methods are called
+this.$store.dispatch('increment', payload) -> this is how action methods are called
+```
+
+- alternatively `mapGetters` can be used to get access to getters
+```
+import {mapGetters} from 'vuex'
+export default {
+    computed: {
+        ...mapGetters([
+            'doubleCounter'
+            ])
+    } 
+}
+```
+and then `doubleCounter` above can be used directly in template as {{doubleCounter}}.
+
+- similarly, `mapMutations` can be used to get access to all mutation methods
+```
+import {mapMutations} from 'vuex'
+export default {
+    methods: {
+        ...mapMutations([
+            'increment'
+            ])
+    }
+}
+```
+- mutations have to be `synchronous`, otherwise the state change doesn't work properly.
+- for `asynchronous` behavior, you can use `actions` to commit mutations. When using actions, the commit to mutation will wait until the async action finishes. Once the async action finishes, the commit will happen immediately thereby changing the state with mutation. That means, the changes to the state is still `synchronous`.
+
+- similarly, `mapActions``can be used to get acccess to all actions methods
+```
+import {mapActions} from 'vuex'
+export default {
+    methods: {
+        ...mapActions([
+            'increment'
+        ])
+    }
+}
+```
+
+- if you want to also pass a payload to your mutation or action, you can do that as given below when calling the mutation or action method in a template
+```
+<button @click="increment(10)"></button> --> this will pass 10 as the payload
+<button @click="increment({key: 'value'})"></button> --> this will pass an object as the payload
 ```
