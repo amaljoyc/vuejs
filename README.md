@@ -198,7 +198,7 @@ this.$router.push({
 import Vuex from 'vuex'
 Vue.use(Vuex)
 
-const store = new Vue.Store({
+const store = new Vuex.Store({
     state: { // -> state is a keyword here
         counter: 0
     },
